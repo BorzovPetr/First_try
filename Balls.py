@@ -62,20 +62,23 @@ def click(event):
         label_count['text'] = count
 
 
-root = tkinter.Tk()
-width_middle = root.winfo_screenwidth() // 2 - root.winfo_screenwidth() // 4
-height_middle = root.winfo_screenheight() // 2 - root.winfo_screenheight() // 4
-root.geometry('800x600+{}+{}'.format(width_middle, height_middle))
-canv = tkinter.Canvas(root, bg='white')
-canv.pack(fill=tkinter.BOTH, expand=1)
+def main():
+    global root, canv, colors, label_count
+    root = tkinter.Tk()
+    width_middle = root.winfo_screenwidth() // 2 - root.winfo_screenwidth() // 4
+    height_middle = root.winfo_screenheight() // 2 - root.winfo_screenheight() // 4
+    root.geometry('800x600+{}+{}'.format(width_middle, height_middle))
+    canv = tkinter.Canvas(root, bg='white')
+    canv.pack(fill=tkinter.BOTH, expand=1)
+    colors = ['red', 'yellow', 'green', 'blue', 'orange']
+    count = 0
+    new_balls()
+    motion()
+    canv.bind('<Button-1>', click)
+    label_count = tkinter.Label(text=count, bg='white', fg='black', width=20)
+    label_count.pack()
+    tkinter.mainloop()
 
-colors = ['red', 'yellow', 'green', 'blue', 'orange']
-x, y, r = 0, 0, 0
-x2, y2, r2 = 0, 0, 0
-count = 0
-new_balls()
-motion()
-canv.bind('<Button-1>', click)
-label_count = tkinter.Label(text=count, bg='white', fg='black', width=20)
-label_count.pack()
-tkinter.mainloop()
+
+if __name__ == "__main__":
+    main()
