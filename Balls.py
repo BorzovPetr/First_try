@@ -63,7 +63,7 @@ def click(event):
 
 
 def main():
-    global root, canv, colors, label_count
+    global root, canv, colors, label_count, count
     root = tkinter.Tk()
     width_middle = root.winfo_screenwidth() // 2 - root.winfo_screenwidth() // 4
     height_middle = root.winfo_screenheight() // 2 - root.winfo_screenheight() // 4
